@@ -78,7 +78,7 @@ MyListHandle := New LV_Rows(hLV)
 ## Management Functions
 Set, Insert and Remove ListView Hwnd's.
 
-## Handle.InsertHwnd()()
+## Handle.InsertHwnd()
 Inserts one or more ListView Hwnd's to be managed.
 
 ### Return
@@ -87,7 +87,7 @@ No return value.
 ### Parameters
 * **Hwnd** - One or more ListView Hwnd's.
 
-## Handle.RemoveHwnd()()
+## Handle.RemoveHwnd()
 Removes a ListView Hwnd.
 
 ### Return
@@ -96,7 +96,7 @@ No return value.
 ### Parameters
 * **Hwnd** - Hwnd of the ListView to be removed.
 
-## Handle.SetHwnd()()
+## Handle.SetHwnd()
 Selects a previously inserted ListView, optionally copying the data, history and groups from another Hwnd.
 
 ### Return
@@ -106,7 +106,7 @@ No return value.
 * **Hwnd** - Hwnd of a previously inserted ListView to be selected.
 * **NewData** - Hwnd of a previously inserted ListView whose data, history and groups will be copied to the one being selected.
 
-## Handle.GetData()()
+## Handle.GetData()
 Retrieves the data, history and groups of a previously inserted ListView.
 
 ### Return
@@ -115,7 +115,7 @@ An object with data, history and groups of a ListView.
 ### Parameters
 * **Hwnd** - Hwnd of a previously inserted ListView. If left blank, the current active ListView will be returned.
 
-## LV_Rows.SetCallback()()
+## LV_Rows.SetCallback()
 Sets a callback function where the user can take actions based on the function being called called. The Callback function must return true for the operation to be completed.
 
 ### Return
@@ -127,19 +127,19 @@ No return value.
 ## Edit Functions
 Edit ListView rows.
 
-## LV_Rows.Copy()()
+## LV_Rows.Copy()
 Copy selected rows to memory.
 
 ### Return
 Number of copied rows.
 
-## LV_Rows.Cut()()
+## LV_Rows.Cut()
 Copy selected rows to memory and delete them.
 
 ### Return
 Number of copied rows.
 
-## LV_Rows.Paste()()
+## LV_Rows.Paste()
 Paste copied rows at selected position.
 
 ### Return
@@ -149,19 +149,19 @@ false if memory contains data or false if not.
 * **Row** - If non-zero pastes memory contents at the specified row.
 * **Multiline** - If true pastes the contents at every selected row.
 
-## LV_Rows.Duplicate()()
+## LV_Rows.Duplicate()
 Duplicates selected rows.
 
 ### Return
 Number of duplicated rows.
 
-## LV_Rows.Delete()()
+## LV_Rows.Delete()
 Delete selected rows.
 
 ### Return
 Number of removed rows.
 
-## LV_Rows.Move()()
+## LV_Rows.Move()
 Move selected rows down or up.
 
 ### Return
@@ -170,7 +170,7 @@ Number of rows moved.
 ### Parameters
 * **Up** - If false or omitted moves rows down. If true moves rows up.
 
-## LV_Rows.Drag()()
+## LV_Rows.Drag()
 Drag-and-Drop selected rows showing a destination bar. Must be called in the ListView G-Label subroutine when A_GuiEvent returns "D" or "d".
 
 ### Return
@@ -183,7 +183,7 @@ The destination row number.
 * **LineThick** - Thickness of the destination bar in pixels. Default is 2px.
 * **Color** - Color of destination bar. Default is "Black".
 
-## Handle.CopyTo()()
+## Handle.CopyTo()
 Copies selected rows to a different ListView (requires initializing).
 
 ### Return
@@ -192,7 +192,7 @@ Number of copied rows.
 ### Parameters
 * **Hwnd** - The Hwnd of a previously inserted ListView.
 
-## Handle.MoveTo()()
+## Handle.MoveTo()
 Copies selected rows to a different ListView and deletes them from the original (requires initializing).
 
 ### Return
@@ -204,25 +204,25 @@ Number of copied rows.
 ## History Functions
 Keep a history of ListView changes and allow Undo and Redo. These functions operate on the currently selected ListView.
 
-## Handle.Add()()
+## Handle.Add()
 Adds an entry on History. This function requires initializing: MyListHandle := New LV_Rows()
 
 ### Return
 The total number of entries in history.
 
-## Handle.Undo()()
+## Handle.Undo()
 Replaces ListView contents with previous entry state, if any.
 
 ### Return
 New entry position or false if it's already the first entry.
 
-## Handle.Redo()()
+## Handle.Redo()
 Replaces ListView contents with next entry state, if any.
 
 ### Return
 New entry position or false if it's already the last entry.
 
-## Handle.ClearHistory()()
+## Handle.ClearHistory()
 Removes all history entries from the ListView.
 
 ### Return
@@ -231,7 +231,7 @@ New entry position or false if it's already the last entry.
 ## Group Functions
 Set, add and remove Listview Groups. These functions are based on just me's [LV_EX library](http://autohotkey.com/boards/viewtopic.php?t=1256)
 
-## Handle.EnableGroups()()
+## Handle.EnableGroups()
 Enables or disables Groups in the currently selected ListView initializing: MyListHandle := New LV_Rows()
 
 ### Return
@@ -243,7 +243,7 @@ No return value.
 * **Collapsible** - If TRUE makes the groups collapsible.
 * **StartCollapsed** - If TRUE starts all groups collapsed.
 
-## Handle.InsertGroup()()
+## Handle.InsertGroup()
 Inserts or renames a group on top of the specified row.
 
 ### Return
@@ -253,7 +253,7 @@ TRUE if Row is bigger than 0 or FALSE otherwise.
 * **Row** - Number of the row for the group to be inserted. If left blank the first selected row will be used.
 * **GroupName** - Name of the new group or new name for an existing group.
 
-## Handle.RemoveGroup()()
+## Handle.RemoveGroup()
 Removes the group the indicated row belongs to.
 
 ### Return
@@ -262,7 +262,7 @@ TRUE if Row is bigger than 0 or FALSE otherwise.
 ### Parameters
 * **Row** - Number of a row the group belongs to. If left blank the first selected row will be used.
 
-## Handle.InsertAtGroup()()
+## Handle.InsertAtGroup()
 Inserts a row at indicated position, moving groups after it one row down.
 
 ### Return
@@ -271,7 +271,7 @@ No return value.
 ### Parameters
 * **Row** - Number of the row where to insert.
 
-## Handle.RemoveAtGroup()()
+## Handle.RemoveAtGroup()
 Removes a row from indicated position, moving groups after it one row up.
 
 ### Return
@@ -280,7 +280,7 @@ No return value.
 ### Parameters
 * **Row** - Number of the row where to insert.
 
-## Handle.SetGroups()()
+## Handle.SetGroups()
 Sets one or more groups in the selected ListView.
 
 ### Return
@@ -289,7 +289,7 @@ No return value.
 ### Parameters
 * **Groups** - A list of groups in the format GroupName:RowNumber separated by comma. You can use GetGroups() to save a valid String or Object to be used with this function.
 
-## Handle.GetGroups()()
+## Handle.GetGroups()
 Returns a string or object representing the current groups in the selected ListView.
 
 ### Return
@@ -298,7 +298,7 @@ No return value.
 ### Parameters
 * **AsObject** - If TRUE returns an object with the groups, otherwise an string. Both can be used with SetGroups().
 
-## Handle.SetGroupCollapisable()()
+## Handle.SetGroupCollapisable()
 Enables or disables Groups Collapsible style.
 
 ### Return
@@ -307,13 +307,13 @@ No return value.
 ### Parameters
 * **Collapsible** - If TRUE enables Collapsible style in the selected ListView. If FALSE disables it.
 
-## Handle.RemoveAllGroups()()
+## Handle.RemoveAllGroups()
 Removes all groups in the selected ListView.
 
 ### Return
 No return value.
 
-## Handle.CollapseAll()()
+## Handle.CollapseAll()
 Collapses or expands all groups.
 
 ### Return
@@ -322,7 +322,7 @@ No return value.
 ### Parameters
 * **Collapse** - If TRUE collapses all groups in the selected ListView. If FALSE expands all groups in the selected ListView.
 
-## Handle.RefreshGroups()()
+## Handle.RefreshGroups()
 Reloads the ListView to update groups. This function is called automatically in from other functions, usually it's not necessary to use it in your script.
 
 ### Return
