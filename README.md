@@ -85,7 +85,7 @@ Inserts one or more ListView Hwnd's to be managed.
 No return value.
 
 ### Parameters
-* *Hwnd* - One or more ListView Hwnd's.
+* **Hwnd** - One or more ListView Hwnd's.
 
 ## Handle.RemoveHwnd()()
 Removes a ListView Hwnd.
@@ -94,7 +94,7 @@ Removes a ListView Hwnd.
 No return value.
 
 ### Parameters
-* *Hwnd* - Hwnd of the ListView to be removed.
+* **Hwnd** - Hwnd of the ListView to be removed.
 
 ## Handle.SetHwnd()()
 Selects a previously inserted ListView, optionally copying the data, history and groups from another Hwnd.
@@ -103,8 +103,8 @@ Selects a previously inserted ListView, optionally copying the data, history and
 No return value.
 
 ### Parameters
-* *Hwnd* - Hwnd of a previously inserted ListView to be selected.
-* *NewData* - Hwnd of a previously inserted ListView whose data, history and groups will be copied to the one being selected.
+* **Hwnd** - Hwnd of a previously inserted ListView to be selected.
+* **NewData** - Hwnd of a previously inserted ListView whose data, history and groups will be copied to the one being selected.
 
 ## Handle.GetData()()
 Retrieves the data, history and groups of a previously inserted ListView.
@@ -113,7 +113,7 @@ Retrieves the data, history and groups of a previously inserted ListView.
 An object with data, history and groups of a ListView.
 
 ### Parameters
-* *Hwnd* - Hwnd of a previously inserted ListView. If left blank, the current active ListView will be returned.
+* **Hwnd** - Hwnd of a previously inserted ListView. If left blank, the current active ListView will be returned.
 
 ## LV_Rows.SetCallback()()
 Sets a callback function where the user can take actions based on the function being called called. The Callback function must return true for the operation to be completed.
@@ -122,7 +122,7 @@ Sets a callback function where the user can take actions based on the function b
 No return value.
 
 ### Parameters
-* *Func:           Name of a user-defined function that should receive 2 parameters* - The name of the function being called and the Hwnd of the current set ListView.
+* **Func:           Name of a user-defined function that should receive 2 parameters** - The name of the function being called and the Hwnd of the current set ListView.
 
 ## Edit Functions
 Edit ListView rows.
@@ -146,8 +146,8 @@ Paste copied rows at selected position.
 false if memory contains data or false if not.
 
 ### Parameters
-* *Row* - If non-zero pastes memory contents at the specified row.
-* *Multiline* - If true pastes the contents at every selected row.
+* **Row** - If non-zero pastes memory contents at the specified row.
+* **Multiline** - If true pastes the contents at every selected row.
 
 ## LV_Rows.Duplicate()()
 Duplicates selected rows.
@@ -168,7 +168,7 @@ Move selected rows down or up.
 Number of rows moved.
 
 ### Parameters
-* *Up* - If false or omitted moves rows down. If true moves rows up.
+* **Up** - If false or omitted moves rows down. If true moves rows up.
 
 ## LV_Rows.Drag()()
 Drag-and-Drop selected rows showing a destination bar. Must be called in the ListView G-Label subroutine when A_GuiEvent returns "D" or "d".
@@ -177,11 +177,11 @@ Drag-and-Drop selected rows showing a destination bar. Must be called in the Lis
 The destination row number.
 
 ### Parameters
-* *DragButton* - If it is a lower case "d" it will be recognized as a Right-Click drag and won't actually move any row, only return the destination, otherwise it will be recognized as a Left-Click drag. You may pass A_GuiEvent as the parameter.
-* *AutoScroll* - If true or omitted the ListView will automatically scroll up or down when the cursor is above or below the control.
-* *ScrollDelay* - Delay in miliseconds for AutoScroll. Default is 100ms.
-* *LineThick* - Thickness of the destination bar in pixels. Default is 2px.
-* *Color* - Color of destination bar. Default is "Black".
+* **DragButton** - If it is a lower case "d" it will be recognized as a Right-Click drag and won't actually move any row, only return the destination, otherwise it will be recognized as a Left-Click drag. You may pass A_GuiEvent as the parameter.
+* **AutoScroll** - If true or omitted the ListView will automatically scroll up or down when the cursor is above or below the control.
+* **ScrollDelay** - Delay in miliseconds for AutoScroll. Default is 100ms.
+* **LineThick** - Thickness of the destination bar in pixels. Default is 2px.
+* **Color** - Color of destination bar. Default is "Black".
 
 ## Handle.CopyTo()()
 Copies selected rows to a different ListView (requires initializing).
@@ -190,7 +190,7 @@ Copies selected rows to a different ListView (requires initializing).
 Number of copied rows.
 
 ### Parameters
-* *Hwnd* - The Hwnd of a previously inserted ListView.
+* **Hwnd** - The Hwnd of a previously inserted ListView.
 
 ## Handle.MoveTo()()
 Copies selected rows to a different ListView and deletes them from the original (requires initializing).
@@ -199,7 +199,7 @@ Copies selected rows to a different ListView and deletes them from the original 
 Number of copied rows.
 
 ### Parameters
-* *Hwnd* - The Hwnd of a previously inserted ListView.
+* **Hwnd** - The Hwnd of a previously inserted ListView.
 
 ## History Functions
 Keep a history of ListView changes and allow Undo and Redo. These functions operate on the currently selected ListView.
@@ -238,10 +238,10 @@ Enables or disables Groups in the currently selected ListView initializing: MyLi
 No return value.
 
 ### Parameters
-* *Enable* - If TRUE enables GroupView in the selected ListView. If FALSE disables it.
-* *FirstName* - Name for the first (mandatory) group at row 1.
-* *Collapsible* - If TRUE makes the groups collapsible.
-* *StartCollapsed* - If TRUE starts all groups collapsed.
+* **Enable** - If TRUE enables GroupView in the selected ListView. If FALSE disables it.
+* **FirstName** - Name for the first (mandatory) group at row 1.
+* **Collapsible** - If TRUE makes the groups collapsible.
+* **StartCollapsed** - If TRUE starts all groups collapsed.
 
 ## Handle.InsertGroup()()
 Inserts or renames a group on top of the specified row.
@@ -250,8 +250,8 @@ Inserts or renames a group on top of the specified row.
 TRUE if Row is bigger than 0 or FALSE otherwise.
 
 ### Parameters
-* *Row* - Number of the row for the group to be inserted. If left blank the first selected row will be used.
-* *GroupName* - Name of the new group or new name for an existing group.
+* **Row** - Number of the row for the group to be inserted. If left blank the first selected row will be used.
+* **GroupName** - Name of the new group or new name for an existing group.
 
 ## Handle.RemoveGroup()()
 Removes the group the indicated row belongs to.
@@ -260,7 +260,7 @@ Removes the group the indicated row belongs to.
 TRUE if Row is bigger than 0 or FALSE otherwise.
 
 ### Parameters
-* *Row* - Number of a row the group belongs to. If left blank the first selected row will be used.
+* **Row** - Number of a row the group belongs to. If left blank the first selected row will be used.
 
 ## Handle.InsertAtGroup()()
 Inserts a row at indicated position, moving groups after it one row down.
@@ -269,7 +269,7 @@ Inserts a row at indicated position, moving groups after it one row down.
 No return value.
 
 ### Parameters
-* *Row* - Number of the row where to insert.
+* **Row** - Number of the row where to insert.
 
 ## Handle.RemoveAtGroup()()
 Removes a row from indicated position, moving groups after it one row up.
@@ -278,7 +278,7 @@ Removes a row from indicated position, moving groups after it one row up.
 No return value.
 
 ### Parameters
-* *Row* - Number of the row where to insert.
+* **Row** - Number of the row where to insert.
 
 ## Handle.SetGroups()()
 Sets one or more groups in the selected ListView.
@@ -287,7 +287,7 @@ Sets one or more groups in the selected ListView.
 No return value.
 
 ### Parameters
-* *Groups* - A list of groups in the format GroupName:RowNumber separated by comma. You can use GetGroups() to save a valid String or Object to be used with this function.
+* **Groups** - A list of groups in the format GroupName:RowNumber separated by comma. You can use GetGroups() to save a valid String or Object to be used with this function.
 
 ## Handle.GetGroups()()
 Returns a string or object representing the current groups in the selected ListView.
@@ -296,7 +296,7 @@ Returns a string or object representing the current groups in the selected ListV
 No return value.
 
 ### Parameters
-* *AsObject* - If TRUE returns an object with the groups, otherwise an string. Both can be used with SetGroups().
+* **AsObject** - If TRUE returns an object with the groups, otherwise an string. Both can be used with SetGroups().
 
 ## Handle.SetGroupCollapisable()()
 Enables or disables Groups Collapsible style.
@@ -305,7 +305,7 @@ Enables or disables Groups Collapsible style.
 No return value.
 
 ### Parameters
-* *Collapsible* - If TRUE enables Collapsible style in the selected ListView. If FALSE disables it.
+* **Collapsible** - If TRUE enables Collapsible style in the selected ListView. If FALSE disables it.
 
 ## Handle.RemoveAllGroups()()
 Removes all groups in the selected ListView.
@@ -320,7 +320,7 @@ Collapses or expands all groups.
 No return value.
 
 ### Parameters
-* *Collapse* - If TRUE collapses all groups in the selected ListView. If FALSE expands all groups in the selected ListView.
+* **Collapse** - If TRUE collapses all groups in the selected ListView. If FALSE expands all groups in the selected ListView.
 
 ## Handle.RefreshGroups()()
 Reloads the ListView to update groups. This function is called automatically in from other functions, usually it's not necessary to use it in your script.
@@ -329,5 +329,5 @@ Reloads the ListView to update groups. This function is called automatically in 
 No return value.
 
 ### Parameters
-* *Collapsed* - If TRUE collapses all groups in the selected ListView.
+* **Collapsed** - If TRUE collapses all groups in the selected ListView.
 
