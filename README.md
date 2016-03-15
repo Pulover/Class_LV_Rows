@@ -2,12 +2,12 @@
 
 ## Additional functions for AHK ListView controls
 
-### Credits
-[LV_EX functions](https://github.com/AHK-just-me/LV_EX) by just me
-
 AHK version: 1.1.23.01
 
 This class provides an easy way to add functionalities to ListViews that are not supported by AutoHotkey built-in functions such as Copy, Cut, Paste, Drag and more.
+
+### Credits
+[LV_EX functions](https://github.com/AHK-just-me/LV_EX) by just me
 
 ## Edit Functions
 * Copy()

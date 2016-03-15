@@ -3,8 +3,7 @@
 ;                    Class LV_Rows
 ;
 ; Author:            Pulover [Rodolfo U. Batista]
-;                    rodolfoub@gmail.com
-; Release date:      25 September 2013
+; AHK version:       1.1.23.01
 ;
 ;                    Additional functions for ListView controls
 ;=======================================================================================
