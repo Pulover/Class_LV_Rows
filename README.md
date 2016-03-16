@@ -97,13 +97,13 @@ No return value.
 * **Hwnd** - Hwnd of the ListView to be removed.
 
 ## Handle.SetHwnd()
-Selects a previously inserted ListView, optionally copying the data, history and groups from another Hwnd.
+Selects a previously inserted ListView or adds it to the handle and selects it, optionally copying the data, history and groups from another Hwnd.
 
 ### Return
 No return value.
 
 ### Parameters
-* **Hwnd** - Hwnd of a previously inserted ListView to be selected.
+* **Hwnd** - Hwnd of a ListView to be selected. If the hwnd is not found, it will be added to the handle and selected.
 * **NewData** - Hwnd of a previously inserted ListView whose data, history and groups will be copied to the one being selected.
 
 ## Handle.GetData()
@@ -122,7 +122,7 @@ Sets a callback function where the user can take actions based on the function b
 No return value.
 
 ### Parameters
-* **Func:           Name of a user-defined function that should receive 2 parameters** - The name of the function being called and the Hwnd of the current set ListView.
+* **Func** - Name of a user-defined function that should receive 2 parameters** - The name of the function being called and the Hwnd of the current set ListView.
 
 ## Edit Functions
 Edit ListView rows.
@@ -287,7 +287,7 @@ Sets one or more groups in the selected ListView.
 No return value.
 
 ### Parameters
-* **Groups** - A list of groups in the format GroupName:RowNumber separated by comma. You can use GetGroups() to save a valid String or Object to be used with this function.
+* **Groups** - A list of groups in the format "GroupName:RowNumber" separated by comma. You can use GetGroups() to save a valid String or Object to be used with this function.
 
 ## Handle.GetGroups()
 Returns a string or object representing the current groups in the selected ListView.
