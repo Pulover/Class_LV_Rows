@@ -1,4 +1,4 @@
-# Class_LV_Rows
+# Class LV_Rows
 
 ## Additional functions for AHK ListView controls
 
