@@ -143,7 +143,7 @@ Number of copied rows.
 Paste copied rows at selected position.
 
 ### Return
-false if memory contains data or false if not.
+True if memory contains data or false if not.
 
 ### Parameters
 * **Row** - If non-zero pastes memory contents at the specified row.
