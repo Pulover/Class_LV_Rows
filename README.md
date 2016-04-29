@@ -35,7 +35,7 @@ This class provides an easy way to add functionalities to ListViews that are not
 * SetGroups(Groups)
 * GetGroups([AsObject])
 * SetGroupCollapisable([Collapsible])
-* RemoveAllGroups()
+* RemoveAllGroups([FirstName])
 * CollapseAll([Collapse])
 * RefreshGroups([Collapsed])
 
@@ -312,6 +312,9 @@ Removes all groups in the selected ListView.
 
 ### Return
 No return value.
+
+### Parameters
+* **FirstName** - Name for the first (mandatory) group at row 1.
 
 ## Handle.CollapseAll()
 Collapses or expands all groups.
