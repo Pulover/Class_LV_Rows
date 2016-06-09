@@ -17,8 +17,6 @@ This class provides an easy way to add functionalities to ListViews that are not
 * Delete()
 * Move([Up])
 * Drag([DragButton, AutoScroll, ScrollDelay, LineThick, Color])
-* CopyTo(Hwnd)
-* MoveTo(Hwnd)
 
 ## History Functions
 * Add()
@@ -182,24 +180,6 @@ The destination row number.
 * **ScrollDelay** - Delay in miliseconds for AutoScroll. Default is 100ms.
 * **LineThick** - Thickness of the destination bar in pixels. Default is 2px.
 * **Color** - Color of destination bar. Default is "Black".
-
-## Handle.CopyTo()
-Copies selected rows to a different ListView (requires initializing).
-
-### Return
-Number of copied rows.
-
-### Parameters
-* **Hwnd** - The Hwnd of a previously inserted ListView.
-
-## Handle.MoveTo()
-Copies selected rows to a different ListView and deletes them from the original (requires initializing).
-
-### Return
-Number of copied rows.
-
-### Parameters
-* **Hwnd** - The Hwnd of a previously inserted ListView.
 
 ## History Functions
 Keep a history of ListView changes and allow Undo and Redo. These functions operate on the currently selected ListView.
