@@ -78,11 +78,6 @@
 ;        You can create more handles or pass the ListView's Hwnd to operate on different
 ;        lists with the same handle.
 ;
-;    In order to keep row's icons you need to initialize the class passing the
-;        ListView's Hwnd. For example:
-;        Gui, Add, ListView, hwndhLV, Columns
-;        MyListHandle := New LV_Rows(hLV)
-;
 ;=======================================================================================
 Class LV_Rows extends LV_Rows.LV_EX
 {
@@ -902,7 +897,8 @@ Class LV_Rows extends LV_Rows.LV_EX
         }
         Else
             this.Handle.GroupsArray := Groups
-        this.RefreshGroups()
+        this.Handle.Slot[this.Handle.ActiveSlot].Groups := this.Handle.GroupsArray
+    ,   this.RefreshGroups()
     }
 ;=======================================================================================
 ;    Function:           Handle.GetGroups()
