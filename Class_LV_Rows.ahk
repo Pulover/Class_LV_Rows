@@ -214,7 +214,7 @@ Class LV_Rows extends LV_Rows.LV_EX
                 Else If (this.hArray.HasKey(NewData))
                 {
                     this.hArray[Hwnd].GroupsArray := this.hArray[NewData].GroupsArray.Clone()
-                ,   this.hArray[Hwnd].Slot := this.hArray[NewData].Slot.Clone()
+                ,   this.hArray[Hwnd].Slot := this.DeepClone(this.hArray[NewData].Slot)
                 ,   this.hArray[Hwnd].ActiveSlot := this.hArray[NewData].ActiveSlot
                 ,   this.Load()
                 }
@@ -243,7 +243,7 @@ Class LV_Rows extends LV_Rows.LV_EX
             Else If (this.hArray.HasKey(NewData))
             {
                 this.hArray[Hwnd].GroupsArray := this.hArray[NewData].GroupsArray.Clone()
-            ,   this.hArray[Hwnd].Slot := this.hArray[NewData].Slot.Clone()
+            ,   this.hArray[Hwnd].Slot := this.DeepClone(this.hArray[NewData].Slot)
             ,   this.hArray[Hwnd].ActiveSlot := this.hArray[NewData].ActiveSlot
             ,   this.Load()
             }
@@ -263,7 +263,7 @@ Class LV_Rows extends LV_Rows.LV_EX
         If (Hwnd = "")
             Hwnd := this.LVHwnd
         If (this.hArray.HasKey(Hwnd))
-            return this.hArray[Hwnd].Clone()
+            return this.DeepClone(this.hArray[Hwnd])
     }
 ;=======================================================================================
 ;    Function:           Handle.SetData()
@@ -294,7 +294,7 @@ Class LV_Rows extends LV_Rows.LV_EX
             Else If (this.hArray.HasKey(Data))
             {
                 this.hArray[Hwnd].GroupsArray := this.hArray[Data].GroupsArray.Clone()
-            ,   this.hArray[Hwnd].Slot := this.hArray[Data].Slot.Clone()
+            ,   this.hArray[Hwnd].Slot := this.DeepClone(this.hArray[Data].Slot)
             ,   this.hArray[Hwnd].ActiveSlot := this.hArray[Data].ActiveSlot
             ,   this.Load()
             }
@@ -1275,6 +1275,15 @@ Class LV_Rows extends LV_Rows.LV_EX
            VarSetCapacity(WSTR, StrPut(Str, "UTF-16") * 2, 0)
            StrPut(Str, &WSTR, "UTF-16")
            Return &WSTR
+        }
+; ----------------------------------------------------------------------------------------------------------------------
+        DeepClone(Obj)
+        {
+            ObjCopy := Obj.Clone()
+            For k, v in ObjCopy
+                If (IsObject(v))
+                    ObjCopy[k] := this.DeepClone(v)
+            return ObjCopy
         }
     }
 }
