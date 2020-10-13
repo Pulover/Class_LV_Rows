@@ -38,6 +38,9 @@ LV_ModifyCol()
 
 ; Create a handle for both ListViews with the hwnds to enable groups.
 LvHandle := New LV_Rows(hLV1, hLV2)
+LvHandle.SetHwnd(hLV1)
+LvHandle.Add()
+LvHandle.SetHwnd(hLV2)
 LvHandle.Add()
 
 Gui, Show,, [Class] LV_Rows - Demostration Script
@@ -54,6 +57,7 @@ return
 LVLabel:
 Gui, ListView, %A_GuiControl%     ; Set selected ListView as Default.
 LvHandle.SetHwnd(h%A_GuiControl%) ; Select active hwnd in Handle.
+ActiveList := A_GuiControl
 
 ; Detect Drag event.
 If A_GuiEvent = D
