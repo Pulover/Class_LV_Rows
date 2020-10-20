@@ -10,8 +10,8 @@ This class provides an easy way to add functionalities to ListViews that are not
 [LV_EX functions](https://github.com/AHK-just-me/LV_EX) by just me
 
 ## Edit Functions
-* Copy()
-* Cut()
+* Copy([CopyData])
+* Cut([CopyData])
 * Paste([Row, Multiline])
 * Duplicate()
 * Delete()
@@ -19,7 +19,7 @@ This class provides an easy way to add functionalities to ListViews that are not
 * Drag([DragButton, AutoScroll, ScrollDelay, LineThick, Color])
 
 ## History Functions
-* Add()
+* Add([Data])
 * Undo()
 * Redo()
 * ClearHistory()
@@ -67,10 +67,6 @@ MyListHandle := New LV_Rows(hLV1, hLV2)
 You can also use the same handle for the Edit functions.
 You can create more handles or pass the ListView's Hwnd to operate on different lists with the same handle.
 
-In order to keep row's icons you need to initialize the class passing the ListView's Hwnd. For example:
-Gui, Add, ListView, hwndhLV, Columns
-MyListHandle := New LV_Rows(hLV)
-
 - - -
 
 ## Management Functions
@@ -112,6 +108,16 @@ An object with data, history and groups of a ListView.
 
 ### Parameters
 * **Hwnd** - Hwnd of a previously inserted ListView. If left blank, the current active ListView will be returned.
+* **NewData** - Hwnd of a previously inserted ListView whose data, history and groups will be copied to the one being selected.
+
+## Handle.SetData()
+Retrieves the data, history and groups of a previously inserted ListView.
+
+### Return
+No return value.
+
+### Parameters
+* **Hwnd** - Hwnd of a previously inserted ListView. If left blank, the current active ListView will be used.
 
 ## LV_Rows.SetCallback()
 Sets a callback function where the user can take actions based on the function being called called. The Callback function must return true for the operation to be completed.
@@ -131,11 +137,17 @@ Copy selected rows to memory.
 ### Return
 Number of copied rows.
 
+### Parameters
+* **CopyData** - Optional output variable to store the copied data.
+
 ## LV_Rows.Cut()
 Copy selected rows to memory and delete them.
 
 ### Return
 Number of copied rows.
+
+### Parameters
+* **CopyData** - Optional output variable to store the copied data.
 
 ## LV_Rows.Paste()
 Paste copied rows at selected position.
@@ -189,6 +201,9 @@ Adds an entry on History. This function requires initializing: MyListHandle := N
 
 ### Return
 The total number of entries in history.
+
+### Parameters
+* **Data** - An optional object containing an array of RowText Data. The object MUST be an array of objects retrieved using RowText().
 
 ## Handle.Undo()
 Replaces ListView contents with previous entry state, if any.
