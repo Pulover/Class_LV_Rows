@@ -16,7 +16,7 @@ This class provides an easy way to add functionalities to ListViews that are not
 * Duplicate()
 * Delete()
 * Move([Up])
-* Drag([DragButton, AutoScroll, ScrollDelay, LineThick, Color])
+* Drag([DragButton, AutoScroll, ScrollDelay, LineThick, Color, Drop])
 
 ## History Functions
 * Add([Data])
@@ -192,6 +192,7 @@ The destination row number.
 * **ScrollDelay** - Delay in miliseconds for AutoScroll. Default is 100ms.
 * **LineThick** - Thickness of the destination bar in pixels. Default is 2px.
 * **Color** - Color of destination bar. Default is "Black".
+* **Drop** - Set to False to disable automatically dropping selected rows.
 
 ## History Functions
 Keep a history of ListView changes and allow Undo and Redo. These functions operate on the currently selected ListView.

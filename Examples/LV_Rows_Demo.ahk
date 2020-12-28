@@ -25,6 +25,10 @@ Menu, MenuBar, Add, Edit, :EditMenu
 Menu, MenuBar, Add, Groups, :GroupsMenu
 Gui, Menu, MenuBar
 
+Menu, MoveCopyMenu, Add, Move here, MoveSelection
+Menu, MoveCopyMenu, Add, Copy here, CopySelection
+Menu, MoveCopyMenu, Default, Move here
+
 Gui, Add, ListView, AltSubmit vLV1 hwndhLV1 gLVLabel xm w400 r20 LV0x10000, Folder|Root|Attributes ; LVS_EX_DOUBLEBUFFER := LV0x10000 Avoids flickering.
 Loop, %A_ProgramFiles%\*.*, 2
     LV_Add("", A_LoopFileName, A_LoopFileDir, A_LoopFileAttrib)
@@ -38,6 +42,7 @@ LV_ModifyCol()
 
 ; Create a handle for both ListViews with the hwnds to enable groups.
 LvHandle := New LV_Rows(hLV1, hLV2)
+; Set initial history state for both lists
 LvHandle.SetHwnd(hLV1)
 LvHandle.Add()
 LvHandle.SetHwnd(hLV2)
@@ -48,7 +53,9 @@ return
 
 ; Context Menu.
 GuiContextMenu:
-If !InStr(A_GuiControl, "LV")
+If (Dragging)
+    return
+If (!InStr(A_GuiControl, "LV"))
     return
 Menu, EditMenu, Show, %A_GuiX%, %A_GuiY%
 return
@@ -60,10 +67,17 @@ LvHandle.SetHwnd(h%A_GuiControl%) ; Select active hwnd in Handle.
 ActiveList := A_GuiControl
 
 ; Detect Drag event.
-If A_GuiEvent = D
+If (A_GuiEvent = "D")
 {
-    LvHandle.Drag()               ; Call Drag function.
-    LvHandle.Add()                ; Add an entry in History.
+    Dragging := True
+    CtrlDrag := GetKeyState("Ctrl", "P")
+    TargetRow := LvHandle.Drag(A_GuiEvent,,,,, !CtrlDrag) ; Call Drag function.
+    If (GetKeyState("Ctrl", "P"))          ; Control-Drag = copy
+        GoSub, CopySelection
+    Else If (A_GuiEvent == "d")            ; Right-click drag
+        Menu, MoveCopyMenu, Show
+    LvHandle.Add()                         ; Add an entry in History.
+    Dragging := False
 }
 return
 
@@ -106,6 +120,17 @@ Redo:
 GuiControl, -Redraw, %ActiveList%
 LvHandle.Redo()                   ; Go to next History entry.
 GuiControl, +Redraw, %ActiveList%
+return
+
+MoveSelection:
+LV_Rows.Copy()
+LV_Rows.Paste(TargetRow)
+LV_Rows.Delete()
+return
+
+CopySelection:
+LV_Rows.Copy()
+LV_Rows.Paste(TargetRow)
 return
 
 EnableGroups:
